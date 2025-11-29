@@ -45,23 +45,23 @@ const Navbar: React.FC = () => {
     { title: '招新信息', href: '/recruitment' }
   ];
 
-  // 导航条变体动画
+  // 导航条变体动画 - 梦幻棉花糖配色
   const headerVariants = {
     transparent: {
-      backgroundColor: 'rgba(15, 30, 72, 0.95)',
+      background: 'linear-gradient(to right, #fbc2eb, #a6c1ee)',
       backdropFilter: 'blur(16px)',
       paddingTop: '1.5rem',
       paddingBottom: '1.5rem',
       boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-      marginTop: '2rem' // 与轮播图隔开
+      marginTop: '0' // 紧贴顶部
     },
     scrolled: {
-      backgroundColor: 'rgba(15, 30, 72, 0.95)',
+      background: 'linear-gradient(to right, #fbc2eb, #a6c1ee)',
       backdropFilter: 'blur(16px)',
       paddingTop: '0.75rem',
       paddingBottom: '0.75rem',
       boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-      marginTop: '0' // 滚动时紧贴顶部
+      marginTop: '0' // 紧贴顶部
     }
   };
 
@@ -78,7 +78,7 @@ const Navbar: React.FC = () => {
           {/* 品牌标志 - 始终显示 */}
           <Link 
             href="/" 
-            className="text-white font-bold text-xl sm:text-2xl tracking-tight transition-all duration-300"
+            className="text-black font-bold text-xl sm:text-2xl tracking-tight transition-all duration-300"
           >
             计算机科学技术学院
           </Link>
@@ -107,26 +107,26 @@ const Navbar: React.FC = () => {
             {/* 我的部门按钮 - 滚动时隐藏 */}
             <Link 
               href="/departments" 
-              className={`px-4 py-2 rounded-full border border-blue-600 text-blue-600 font-medium transition-all duration-300 hover:bg-blue-50 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+              className={`px-4 py-2 rounded-full bg-white text-[#a6c1ee] font-medium transition-all duration-300 hover:bg-gray-100 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
             >
               我的部门
             </Link>
             {/* 在线客服按钮 - 滚动时隐藏 */}
             <button 
-              className={`px-4 py-2 rounded-full border border-blue-600 text-blue-600 font-medium transition-all duration-300 hover:bg-blue-50 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+              className={`px-4 py-2 rounded-full bg-white text-[#a6c1ee] font-medium transition-all duration-300 hover:bg-gray-100 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
             >
               在线客服
             </button>
             {/* 加入按钮 - 滚动时隐藏 */}
             <button 
-              className={`px-4 py-2 rounded-full border border-blue-600 text-blue-600 font-medium transition-all duration-300 hover:bg-blue-50 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+              className={`px-4 py-2 rounded-full bg-gradient-to-r from-[#fbc2eb] to-[#a6c1ee] text-white font-medium transition-all duration-300 hover:shadow-lg ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
             >
               加入
             </button>
             {/* 用户图标+登录/注册 - 始终显示 */}
             <Link 
               href="/auth" 
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-blue-600 text-blue-600 font-medium transition-all duration-300 hover:bg-blue-50"
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#a6c1ee] text-white font-medium transition-all duration-300 hover:bg-[#9fa8da]"
             >
               <span className="h-5 w-5">👤</span>
               <span className={isScrolled ? 'hidden' : 'inline'}>登录/注册</span>
@@ -169,26 +169,26 @@ const Navbar: React.FC = () => {
           <div className="px-4 py-3 border-t border-border-light space-y-3">
             <Link 
               href="/departments" 
-              className="flex items-center gap-2 w-full px-4 py-3 rounded-full border border-blue-600 text-blue-600 font-medium transition-all duration-300 hover:bg-blue-50"
+              className="flex items-center gap-2 w-full px-4 py-3 rounded-full border border-[#a6c1ee] text-[#a6c1ee] font-medium transition-all duration-300 hover:bg-[#f8f9ff]"
             >
               <span className="h-5 w-5">🏢</span>
               <span>我的部门</span>
             </Link>
             <button 
-              className="flex items-center gap-2 w-full px-4 py-3 rounded-full border border-blue-600 text-blue-600 font-medium transition-all duration-300 hover:bg-blue-50"
+              className="flex items-center gap-2 w-full px-4 py-3 rounded-full border border-[#a6c1ee] text-[#a6c1ee] font-medium transition-all duration-300 hover:bg-[#f8f9ff]"
             >
               <span className="h-5 w-5">💬</span>
               <span>在线客服</span>
             </button>
             <button 
-              className="flex items-center gap-2 w-full px-4 py-3 rounded-full border border-blue-600 text-blue-600 font-medium transition-all duration-300 hover:bg-blue-50"
+              className="flex items-center gap-2 w-full px-4 py-3 rounded-full border border-[#a6c1ee] text-[#a6c1ee] font-medium transition-all duration-300 hover:bg-[#f8f9ff]"
             >
               <span className="h-5 w-5">➕</span>
               <span>加入</span>
             </button>
             <Link 
               href="/auth" 
-              className="flex items-center gap-2 w-full px-4 py-3 rounded-full border border-blue-600 text-blue-600 font-medium transition-all duration-300 hover:bg-blue-50"
+              className="flex items-center gap-2 w-full px-4 py-3 rounded-full border border-[#a6c1ee] text-[#a6c1ee] font-medium transition-all duration-300 hover:bg-[#f8f9ff]"
             >
               <span className="h-5 w-5">👤</span>
               <span>登录/注册</span>

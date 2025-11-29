@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface ResponsiveLayoutProps {
@@ -20,6 +20,7 @@ const ResponsiveLayout: React.FC<ResponsiveLayoutProps> = ({
   const [scrollProgress, setScrollProgress] = useState(0);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const pathname = usePathname();
 
   // 检测设备尺寸变化 - 更精细的断点系统
   useEffect(() => {
@@ -138,7 +139,7 @@ const ResponsiveLayout: React.FC<ResponsiveLayoutProps> = ({
   // 处理导航点击
   const handleNavClick = (path: string) => {
     router.push(path);
-    if (isMobile) {
+    if (screenSize === 'xs' || screenSize === 'sm') {
       setIsSidebarOpen(false);
     }
   };
@@ -233,10 +234,10 @@ const ResponsiveLayout: React.FC<ResponsiveLayoutProps> = ({
                     <li key={item.path}>
                       <motion.button
                         onClick={() => handleNavClick(item.path)}
-                        className={`w-full text-left px-4 py-3 rounded-xl flex items-center gap-3 ${router.pathname === item.path ? 
-                          'bg-primary/10 dark:bg-primary/15 text-primary dark:text-primary-dark font-medium' : 
+                        className={`w-full text-left px-4 py-3 rounded-xl flex items-center gap-3 ${pathname === item.path ?     
+                          'bg-primary/10 dark:bg-primary/15 text-primary dark:text-primary-dark font-medium' :
                           'text-text-primary dark:text-text-primary-dark'}`}
-                        aria-current={router.pathname === item.path ? 'page' : undefined}
+                        aria-current={pathname === item.path ? 'page' : undefined}
                         whileHover={{ 
                           backgroundColor: 'rgba(0, 0, 0, 0.04)', 
                           transform: 'translateX(4px)',
@@ -288,12 +289,12 @@ const ResponsiveLayout: React.FC<ResponsiveLayoutProps> = ({
       <div className="fixed right-8 bottom-8 z-40 flex flex-col gap-4">
         {/* 加入按钮 - 带二维码展开效果 */}
         <motion.button
-          className="p-4 rounded-full border border-blue-600 text-blue-600 transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden relative"
+          className="p-4 rounded-full border border-[#a6c1ee] text-[#a6c1ee] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden relative"
           aria-label="加入我们"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
-          whileHover={{ scale: 1.1, backgroundColor: '#eff6ff' }}
+          whileHover={{ scale: 1.1, backgroundColor: '#f8f9ff' }}
           whileTap={{ scale: 0.95 }}
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -304,12 +305,12 @@ const ResponsiveLayout: React.FC<ResponsiveLayoutProps> = ({
 
         {/* 在线客服按钮 */}
         <motion.button
-          className="p-4 rounded-full border border-blue-600 text-blue-600 transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden relative"
+          className="p-4 rounded-full border border-[#a6c1ee] text-[#a6c1ee] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden relative"
           aria-label="在线客服"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
-          whileHover={{ scale: 1.1, backgroundColor: '#eff6ff' }}
+          whileHover={{ scale: 1.1, backgroundColor: '#f8f9ff' }}
           whileTap={{ scale: 0.95 }}
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -320,13 +321,13 @@ const ResponsiveLayout: React.FC<ResponsiveLayoutProps> = ({
 
         {/* 返回顶部按钮 - 精致化增强版 */}
         <motion.button
-          className={`p-4 rounded-full border border-blue-600 text-blue-600 transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden relative`}
+          className={`p-4 rounded-full border border-[#a6c1ee] text-[#a6c1ee] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden relative`}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="返回顶部"
           initial={{ opacity: 0, y: 20 }}
           animate={isScrolled ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
-          whileHover={{ scale: 1.1, backgroundColor: '#eff6ff' }}
+          whileHover={{ scale: 1.1, backgroundColor: '#f8f9ff' }}
           whileTap={{ scale: 0.95 }}
           style={{ pointerEvents: isScrolled ? 'auto' : 'none' }}
         >
@@ -339,9 +340,9 @@ const ResponsiveLayout: React.FC<ResponsiveLayoutProps> = ({
 
       {/* 主内容区域 - 响应式优化 */}
       <main className={`min-h-screen transition-all duration-300 ${getContainerClass()}`}>
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait">   
           <motion.div
-            key={router.pathname}
+            key={pathname}       
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}

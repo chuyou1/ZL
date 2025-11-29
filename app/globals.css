@@ -2,25 +2,25 @@
 
 /* 高端精致美学设计系统 - 上亿投资项目标准 */
 :root {
-  /* 亮色模式 - 精致奢华配色 */
+  /* 亮色模式 - 梦幻棉花糖配色 */
   /* 极纯净的背景，带有细腻的质感 */
   --background: #ffffff;
   --background-gradient-start: #ffffff;
-  --background-gradient-end: #f9f9f9;
+  --background-gradient-end: #f8f9ff;
   
   --foreground: #121212;
   
-  /* 高端深邃蓝色作为主色调，体现奢华与科技感 */
-  --primary: #0f1e48;
-  --primary-light: #1a3169;
-  --primary-dark: #080f28;
+  /* 甜美温柔的粉蓝色作为主色调，营造轻松可爱的氛围 */
+  --primary: #fbc2eb;
+  --primary-light: #fce4ec;
+  --primary-dark: #f8bbd0;
   
-  /* 精致点缀色 */
-  --accent: #8a66e4;
-  --accent-light: #a587ff;
-  --accent-dark: #6d48c9;
-  --accent-alt: #38bdf8;
-  --accent-tertiary: #f59e0b;
+  /* 精致点缀色 - 淡蓝色作为对比色 */
+  --accent: #a6c1ee;
+  --accent-light: #c5cae9;
+  --accent-dark: #9fa8da;
+  --accent-alt: #fbc2eb;
+  --accent-tertiary: #a6c1ee;
   
   /* 文字颜色体系 */
   --text-primary: #121212;
@@ -29,8 +29,8 @@
   --text-quaternary: #999999;
   
   /* 边框和卡片颜色 */
-  --border: #e0e0e0;
-  --border-light: #f0f0f0;
+  --border: #e8eaf6;
+  --border-light: #f3e5f5;
   --card-bg: #ffffff;
   
   /* 精致阴影系统 */
@@ -122,13 +122,13 @@
   --easing-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   
   /* 阴影配置 */
-  --shadow-neumorphic: 8px 8px 16px #e6e6e6, -8px -8px 16px #ffffff;
-  --shadow-neumorphic-inset: inset 2px 2px 5px #e6e6e6, inset -2px -2px 5px #ffffff;
-  --shadow-neumorphic-hover: 10px 10px 20px #e0e0e0, -10px -10px 20px #ffffff;
-  --shadow-neumorphic-pressed: inset 4px 4px 8px #e0e0e0, inset -4px -4px 8px #ffffff;
+  --shadow-neumorphic: 8px 8px 16px #e8eaf6, -8px -8px 16px #ffffff;
+  --shadow-neumorphic-inset: inset 2px 2px 5px #e8eaf6, inset -2px -2px 5px #ffffff;
+  --shadow-neumorphic-hover: 10px 10px 20px #e0e7ff, -10px -10px 20px #ffffff;
+  --shadow-neumorphic-pressed: inset 4px 4px 8px #e0e7ff, inset -4px -4px 8px #ffffff;
 }
 
-/* 暗色模式支持 - 高端奢华风格 */
+/* 暗色模式支持 - 梦幻棉花糖风格 */
 .dark {
   /* 深邃而富有层次感的深色背景 */
   --background: #0a0a0a;
@@ -138,16 +138,16 @@
   --foreground: #ffffff;
   
   /* 暗色模式主色调 */
-  --primary: #93c5fd;
-  --primary-light: #bfdbfe;
-  --primary-dark: #60a5fa;
+  --primary: #f48fb1;
+  --primary-light: #f8bbd0;
+  --primary-dark: #f06292;
   
   /* 暗色模式点缀色 */
-  --accent: #c4b5fd;
-  --accent-light: #ddd6fe;
-  --accent-dark: #a78bfa;
-  --accent-alt: #7dd3fc;
-  --accent-tertiary: #fcd34d;
+  --accent: #9fa8da;
+  --accent-light: #c5cae9;
+  --accent-dark: #7986cb;
+  --accent-alt: #f48fb1;
+  --accent-tertiary: #9fa8da;
   
   /* 暗色模式文字颜色 */
   --text-primary: #ffffff;

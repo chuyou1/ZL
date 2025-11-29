@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import ResponsiveCard from './ResponsiveCard';
-import TouchButton from './TouchButton';
+import NeumorphicButton from './NeumorphicButton';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 
 interface ServiceCategory {
@@ -164,11 +165,7 @@ const CampusServiceSection: React.FC = () => {
     hidden: { y: 20, opacity: 0 },
     visible: { 
       y: 0, 
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
+      opacity: 1
     }
   };
 
@@ -186,18 +183,23 @@ const CampusServiceSection: React.FC = () => {
         </div>
 
         {/* 精选服务 */}
-        <section 
+        <motion.section 
           className="mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
         >
-          <h3 
+          <motion.h3 
             className="text-2xl font-bold text-gray-800 dark:text-white mb-8"
+            variants={itemVariants}
           >
             精选服务
-          </h3>
+          </motion.h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {featuredServices.map((service) => (
-              <div key={service.id}>
-                <ResponsiveCard className="h-full bg-white dark:bg-gray-800 shadow-xl hoverable={true} group">
+              <motion.div key={service.id} variants={itemVariants}>
+                <ResponsiveCard className="h-full bg-white dark:bg-gray-800 shadow-xl group">
                   <div className="aspect-[4/3] overflow-hidden relative">
                     <Image 
                       src="/next.svg" // 使用占位图，实际应用中替换为真实服务图片
@@ -208,9 +210,9 @@ const CampusServiceSection: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                       <div className="p-6">
                         <Link href={service.link}>
-                          <TouchButton variant="primary" size="small">
+                          <NeumorphicButton variant="primary" size="small">
                             了解详情
-                          </TouchButton>
+                          </NeumorphicButton>
                         </Link>
                       </div>
                     </div>
@@ -275,24 +277,24 @@ const CampusServiceSection: React.FC = () => {
               
               {/* 地图交互按钮 */}
               <div className="absolute bottom-4 right-4 flex flex-col gap-2">
-                <TouchButton size="small" className="w-10 h-10 p-0 rounded-full">
+                <NeumorphicButton size="small" className="w-10 h-10 p-0 rounded-full">
                   <Image src="/plus.svg" alt="放大" width={20} height={20} />
-                </TouchButton>
-                <TouchButton size="small" className="w-10 h-10 p-0 rounded-full">
+                </NeumorphicButton>
+                <NeumorphicButton size="small" className="w-10 h-10 p-0 rounded-full">
                   <Image src="/minus.svg" alt="缩小" width={20} height={20} />
-                </TouchButton>
-                <TouchButton size="small" className="w-10 h-10 p-0 rounded-full">
+                </NeumorphicButton>
+                <NeumorphicButton size="small" className="w-10 h-10 p-0 rounded-full">
                   <Image src="/layers.svg" alt="图层" width={20} height={20} />
-                </TouchButton>
+                </NeumorphicButton>
               </div>
             </div>
             
             <div className="mt-6 text-center">
               <Link href="/services/campus-map">
-                <TouchButton variant="outline">
-                  查看完整校园地图
-                </TouchButton>
-              </Link>
+              <NeumorphicButton variant="outline">
+                查看完整校园地图
+              </NeumorphicButton>
+            </Link>
             </div>
           </motion.div>
         </motion.section>

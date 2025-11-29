@@ -1,7 +1,7 @@
 'use client';
 
-import { Variants, AnimationControls, useAnimationControls } from 'framer-motion';
-import { useEffect } from 'react';
+import { Variants, useAnimationControls } from 'framer-motion';        
+import { useEffect } from 'react';        
 
 // 基础动画配置
 export const baseAnimationConfig = {
@@ -149,7 +149,7 @@ export const staggerContainerVariants: Variants = {
 
 // 使用滚动触发动画的钩子函数
 export const useScrollAnimation = (
-  controls: AnimationControls,
+  controls: ReturnType<typeof useAnimationControls>,
   options: {
     threshold?: number;
     offset?: string;

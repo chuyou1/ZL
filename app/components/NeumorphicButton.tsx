@@ -35,17 +35,17 @@ const NeumorphicButton: React.FC<NeumorphicButtonProps> = ({
     large: 'px-7 py-3.5 text-lg',
   };
 
-  // 变体样式映射 - 统一为查看更多活动按钮样式
+  // 变体样式映射 - 梦幻棉花糖配色
   const variantClasses = {
-    primary: 'border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400',
-    secondary: 'border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400',
-    accent: 'border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400',
-    outline: 'border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400',
+    primary: 'bg-gradient-to-r from-[#fbc2eb] to-[#a6c1ee] text-white',
+    secondary: 'bg-[#a6c1ee] text-white',
+    accent: 'bg-[#fbc2eb] text-white',
+    outline: 'border border-[#a6c1ee] text-[#a6c1ee] hover:bg-[#f8f9ff]',
   };
 
-  // 基础样式 - 统一为查看更多活动按钮样式
+  // 基础样式 - 黄绿活力版配色
   const neumorphicBaseClasses = 'rounded-full font-medium transition-all duration-300 relative overflow-hidden';
-  const neumorphicShadowClasses = 'hover:bg-blue-50 dark:hover:bg-blue-900/20'; // 移除新拟态阴影，使用统一的悬停效果
+  const neumorphicShadowClasses = 'hover:shadow-lg active:scale-95'; // 移除新拟态阴影，使用统一的悬停效果
   const fullWidthClass = fullWidth ? 'w-full justify-center' : '';
   const disabledClass = disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : '';
 

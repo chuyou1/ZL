@@ -27,7 +27,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
   autoPlayInterval = 6000,
   className = '',
 }) => {
-  // 默认轮播数据 - 高端设计方案
+  // 默认轮播数据 - 梦幻棉花糖配色
   const defaultSlides: BannerSlide[] = [
     {
       id: '1',
@@ -36,7 +36,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
       imageUrl: null,
       link: '/about',
       buttonText: '了解我们',
-      bgGradient: 'from-primary-dark via-primary to-primary-light'
+      bgGradient: 'from-[#fbc2eb] via-[#a6c1ee] to-[#fbc2eb]'
     },
     {
       id: '2',
@@ -45,16 +45,16 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
       imageUrl: null,
       link: '/departments',
       buttonText: '部门介绍',
-      bgGradient: 'from-accent-dark via-accent to-accent-light'
+      bgGradient: 'from-[#fbc2eb] via-[#a6c1ee] to-[#fbc2eb]'
     },
     {
       id: '3',
-      title: '招新活动',
-      subtitle: '加入我们，锻炼能力，结交朋友',
+      title: '活动动态',
+      subtitle: '最新活动资讯，精彩不容错过',
       imageUrl: null,
-      link: '/recruitment',
-      buttonText: '立即报名',
-      bgGradient: 'from-accent-alt/80 via-accent/90 to-accent-tertiary/80'
+      link: '/activities',
+      buttonText: '查看详情',
+      bgGradient: 'from-[#fbc2eb] via-[#a6c1ee] to-[#fbc2eb]'
     }
   ];
   
@@ -232,7 +232,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
                 >
                   {/* 装饰线 */}
                   <motion.div 
-                    className="h-1 w-16 bg-accent mb-4"
+                    className="h-1 w-16 bg-gradient-to-r from-[#fbc2eb] to-[#a6c1ee] mb-4"
                     variants={{
                       hidden: { width: 0, opacity: 0 },
                       visible: { width: 64, opacity: 1 }
@@ -271,7 +271,7 @@ const BannerCarousel: React.FC<BannerCarouselProps> = ({
                     >
                       <Link href={slide.link} passHref>
                         <motion.button
-                          className="inline-flex items-center px-8 py-4 bg-white text-primary font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:bg-white/95"
+                          className="inline-flex items-center px-8 py-4 bg-white text-[#a6c1ee] font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:bg-white/95"
                           whileHover={{ scale: 1.03 }}
                           whileTap={{ scale: 0.97 }}
                         >

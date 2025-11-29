@@ -69,9 +69,9 @@ const NewsSection: React.FC = () => {
     : newsItems.filter(item => item.category === activeCategory);
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-0 bg-background">
       <div className="container mx-auto px-4">
-        <div className="mb-12">
+        <div className="mb-8">
           
           {/* 响应式分类筛选标签 */}
           <div className="flex overflow-x-auto pb-2 -mx-4 px-4 hide-scrollbar">
@@ -81,8 +81,8 @@ const NewsSection: React.FC = () => {
                   key={category}
                   onClick={() => setActiveCategory(category)}
                   className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm whitespace-nowrap transition-all duration-300 ${activeCategory === category 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600'}`}
+                    ? 'bg-[#a6c1ee] text-white' 
+                    : 'bg-white text-[#666666] hover:bg-[#f8f9ff]'}`}
                   aria-label={`筛选${category === 'all' ? '全部' : category}新闻`}
                 >
                   {category === 'all' ? '全部' : category}
@@ -129,17 +129,17 @@ const NewsSection: React.FC = () => {
                   <div className="p-3 sm:p-4 flex-grow flex flex-col">
                     <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-2">
                       <span className="mr-3">{item.date}</span>
-                      <span className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded">
+                      <span className="px-2 py-0.5 bg-[#e8f5e8] dark:bg-[#9ccc65]/20 text-[#8bc34a] dark:text-[#9ccc65] rounded">
                         {item.category}
                       </span>
                     </div>
-                    <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 flex-grow">
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-[#8bc34a] dark:group-hover:text-[#9ccc65] transition-colors line-clamp-2 flex-grow">
                       {item.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
                       {item.summary}
                     </p>
-                    <div className="flex items-center text-blue-600 dark:text-blue-400 font-medium text-xs sm:text-sm transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="flex items-center text-[#8bc34a] dark:text-[#9ccc65] font-medium text-xs sm:text-sm transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                       阅读全文
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -153,16 +153,17 @@ const NewsSection: React.FC = () => {
         </div>
 
         <div className="text-center mt-10">
-          <Link 
-            href="/activities" 
-            className="inline-flex items-center px-6 py-3 border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 font-medium rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
-          >
-            查看更多活动
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
-          </Link>
-        </div>
+            <FadeInUp delay={0.4}>
+              <Link 
+                href="/activities" 
+                passHref
+              >
+                <button className="px-8 py-4 bg-gradient-to-r from-[#fbc2eb] to-[#a6c1ee] text-white font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                  查看更多活动
+                </button>
+              </Link>
+            </FadeInUp>
+          </div>
       </div>
     </section>
   );

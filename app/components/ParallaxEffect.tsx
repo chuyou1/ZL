@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useAnimation } from 'framer-motion';
 import Image from 'next/image';
 
 interface ParallaxEffectProps {
@@ -15,6 +15,7 @@ interface ParallaxEffectProps {
 }
 
 interface ParticleProps {
+  id: number;
   x: number;
   y: number;
   size: number;
@@ -51,7 +52,7 @@ interface GlowEffectProps {
 }
 
 // 粒子组件
-const Particle: React.FC<ParticleProps> = ({ x, y, size, speed, color, duration, delay }) => {
+const Particle: React.FC<ParticleProps> = ({ id, x, y, size, speed, color, duration, delay }) => {
   return (
     <motion.div
       className="absolute rounded-full"
@@ -141,6 +142,7 @@ export const ParticleBackground: React.FC<ParticleBackgroundProps> = ({
     >
       {particles.map((particle) => (
         <Particle
+          id={particle.id}
           key={particle.id}
           x={particle.x}
           y={particle.y}

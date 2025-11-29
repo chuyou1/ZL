@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 
 // 视差滚动钩子
@@ -41,11 +41,14 @@ export const useFadeInUp = ({
 // 视差容器组件
 export const ParallaxContainer = ({ children, className = '', factor = 0.2, limit }: { children: React.ReactNode; className?: string; factor?: number; limit?: number }) => {
   const { y } = useParallax(factor, limit);
-  return React.createElement(motion.div, { 
-    className: `relative ${className}`, 
-    style: { y },
-    children
-  });
+  return (
+    <motion.div 
+      className={`relative ${className}`} 
+      style={{ y }}
+    >
+      {children}
+    </motion.div>
+  );
 };
 
 // 带淡入效果的视差元素组件
@@ -66,15 +69,18 @@ export const AnimatedParallaxElement = ({ children, className = '', factor = 0.1
     visible: { opacity: 1, y: 0, transition: { duration, delay } }
   };
 
-  return React.createElement(motion.div, {
-    ref,
-    initial: "hidden",
-    animate: isInView ? "visible" : "hidden",
-    variants,
-    className: `relative ${className}`,
-    style: { y },
-    children
-  });
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={variants}
+      className={`relative ${className}`}
+      style={{ y }}
+    >
+      {children}
+    </motion.div>
+  );
 };
 
 // 入场动画组件
@@ -84,22 +90,20 @@ export const FadeInUp = ({
   delay = 0,
   duration = 0.6,
   initialY = 20
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-  duration?: number;
-  initialY?: number;
 }) => {
   const { ref, isInView, variants } = useFadeInUp({ delay, duration, initialY });
   
-  return React.createElement(motion.div, {
-    ref,
-    initial: "hidden",
-    animate: isInView ? "visible" : "hidden",
-    className,
-    children
-  });
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={variants}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
 };
 
 // 错开入场动画的容器组件
@@ -109,12 +113,6 @@ export const StaggerFadeInUp = ({
   delay = 0,
   interval = 0.15,
   duration = 0.6
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-  interval?: number;
-  duration?: number;
 }) => {
   const variants = {
     hidden: { opacity: 0 },
@@ -128,12 +126,15 @@ export const StaggerFadeInUp = ({
     }
   };
   
-  return React.createElement(motion.div, {
-    initial: "hidden",
-    whileInView: "visible",
-    viewport: { once: true, margin: "-100px" },
-    variants,
-    className,
-    children
-  });
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={variants}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
 };

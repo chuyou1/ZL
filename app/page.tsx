@@ -54,10 +54,10 @@ export default function Home() {
         <section className="py-24 px-4 md:px-8 relative section-padding bg-background">
           <div className="container mx-auto">
             <FadeInUp className="text-center mb-20">
-              <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold text-primary mb-6 leading-tight tracking-tight">
+              <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold text-[#a6c1ee] mb-6 leading-tight tracking-tight">
                 自律委员会简介
               </h2>
-              <div className="w-24 h-1 bg-accent mx-auto rounded-full gradient-accent"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-[#fbc2eb] to-[#a6c1ee] mx-auto rounded-full"></div>
             </FadeInUp>
 
             <FadeInUp delay={0.2} className="max-w-3xl mx-auto text-center text-text-secondary mb-20">
@@ -92,13 +92,12 @@ export default function Home() {
                 ].map((item, index) => (
                   <FadeInUp 
                     key={index} 
-                    className="bg-white dark:bg-card-bg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border border-border-light overflow-hidden relative group"
-                    style={{ '--accent-color': `var(${item.accentColor})` }}
+                    className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 overflow-hidden relative group"
                   >
                     {/* 标题展示面 */}
-                    <div className="p-8 flex flex-col items-center justify-center h-64 text-center transition-all duration-500 group-hover:opacity-0 absolute inset-0 z-10 bg-white dark:bg-card-bg">
+                    <div className="p-8 flex flex-col items-center justify-center h-64 text-center transition-all duration-500 group-hover:opacity-0 absolute inset-0 z-10 bg-white">
                       <motion.div 
-                        className="w-20 h-20 rounded-full bg-background-primary dark:bg-background flex items-center justify-center mb-6 shadow-md transform group-hover:scale-125 transition-transform duration-500"
+                        className="w-20 h-20 rounded-full bg-[#f5f5f5] flex items-center justify-center mb-6 shadow-md transform group-hover:scale-125 transition-transform duration-500"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
@@ -108,11 +107,11 @@ export default function Home() {
                           alt={item.title} 
                           width={32} 
                           height={32} 
-                          style={{ color: `var(${item.accentColor})` }}
+                          style={{ color: '#8bc34a' }}
                         />
                       </motion.div>
                       <motion.h3 
-                        className="text-2xl font-bold text-primary transform group-hover:translate-y-4 transition-all duration-500"
+                        className="text-2xl font-bold text-[#8bc34a] transform group-hover:translate-y-4 transition-all duration-500"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
@@ -124,22 +123,22 @@ export default function Home() {
                     {/* 内容展示面 */}
                     <div className="p-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 h-64 flex flex-col items-center justify-center">
                         <motion.p 
-                          className="text-text-secondary text-center flex-1 flex items-center justify-center leading-relaxed"
+                          className="text-[#666666] text-center flex-1 flex items-center justify-center leading-relaxed"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.8, delay: 0.4 }}
                         >
                           {item.description}
                         </motion.p>
-                        {/* 底部渐变条效果 */}
-                        <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-purple-500 to-yellow-500 transform scale-x-0 origin-left group-hover:scale-x-100 transition-all duration-700 rounded-full"></div>
-                        {/* 顶部渐变条效果 */}
-                        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-purple-500 to-yellow-500 transform scale-x-0 origin-left group-hover:scale-x-100 transition-all duration-700 rounded-full"></div>
                     </div>
+                    {/* 底部渐变条效果 - 贴边设计 */}
+                    <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#fbc2eb] to-[#a6c1ee] transform scale-x-0 origin-left group-hover:scale-x-100 transition-all duration-700 rounded-none"></div>
+                    {/* 顶部渐变条效果 - 贴边设计 */}
+                    <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#fbc2eb] to-[#a6c1ee] transform scale-x-0 origin-left group-hover:scale-x-100 transition-all duration-700 rounded-none"></div>
                     
                     {/* 背景装饰效果 */}
-                    <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: `radial-gradient(circle, rgba(147, 51, 234, 0.15) 0%, rgba(147, 51, 234, 0) 70%)` }}></div>
-                    <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: `radial-gradient(circle, rgba(234, 179, 8, 0.15) 0%, rgba(234, 179, 8, 0) 70%)` }}></div>
+                    <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: `radial-gradient(circle, rgba(139, 195, 74, 0.15) 0%, rgba(139, 195, 74, 0) 70%)` }}></div>
+                    <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: `radial-gradient(circle, rgba(156, 204, 101, 0.15) 0%, rgba(156, 204, 101, 0) 70%)` }}></div>
                   </FadeInUp>
                 ))
               }
@@ -151,11 +150,11 @@ export default function Home() {
         <section className="py-24 px-4 md:px-8 bg-background-primary/50 section-padding">
           <div className="container mx-auto">
             <FadeInUp className="text-center mb-20">
-              <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold text-primary mb-6 leading-tight">
+              <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold text-[#a6c1ee] mb-6 leading-tight">
                 部门设置
               </h2>
-              <div className="w-24 h-1 bg-accent mx-auto rounded-full gradient-accent"></div>
-              <p className="mt-4 text-text-secondary max-w-2xl mx-auto">自律委员会下设五个部门，各部门分工明确、协同合作</p>
+              <div className="w-24 h-1 bg-gradient-to-r from-[#fbc2eb] to-[#a6c1ee] mx-auto rounded-full"></div>
+              <p className="mt-4 text-[#666666] max-w-2xl mx-auto">自律委员会下设五个部门，各部门分工明确、协同合作</p>
             </FadeInUp>
             
             <StaggerFadeInUp interval={0.15} className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-6 gap-8">
@@ -193,13 +192,12 @@ export default function Home() {
               ].map((dept, index) => (
                 <FadeInUp 
                     key={index} 
-                    className={`bg-white dark:bg-card-bg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border border-border-light overflow-hidden relative group ${index < 3 ? 'col-span-2' : 'col-span-2'} ${index === 3 ? 'col-start-2' : ''} ${index === 4 ? 'col-start-4' : ''}`}
-                    style={{ '--accent-color': `var(${dept.accentColor})` }}
+                    className={`bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 overflow-hidden relative group ${index < 3 ? 'col-span-2' : 'col-span-2'} ${index === 3 ? 'col-start-2' : ''} ${index === 4 ? 'col-start-4' : ''}`}
                   >
                     {/* 部门名称展示面 */}
-                    <div className="p-8 flex flex-col items-center justify-center h-64 text-center transition-all duration-500 group-hover:opacity-0 absolute inset-0 z-10 bg-white dark:bg-card-bg">
+                    <div className="p-8 flex flex-col items-center justify-center h-64 text-center transition-all duration-500 group-hover:opacity-0 absolute inset-0 z-10 bg-white">
                       <motion.div 
-                        className="w-20 h-20 rounded-full bg-background-primary dark:bg-background flex items-center justify-center mb-6 shadow-md transform group-hover:scale-125 transition-transform duration-500"
+                        className="w-20 h-20 rounded-full bg-[#f5f5f5] flex items-center justify-center mb-6 shadow-md transform group-hover:scale-125 transition-transform duration-500"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
@@ -209,11 +207,11 @@ export default function Home() {
                           alt={dept.name} 
                           width={32} 
                           height={32} 
-                          style={{ color: `var(${dept.accentColor})` }}
+                          style={{ color: '#8bc34a' }}
                         />
                       </motion.div>
                       <motion.h3 
-                        className="text-2xl font-bold text-primary transform group-hover:translate-y-4 transition-all duration-500"
+                        className="text-2xl font-bold text-[#8bc34a] transform group-hover:translate-y-4 transition-all duration-500"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
@@ -225,22 +223,22 @@ export default function Home() {
                     {/* 部门职责展示面 */}
                     <div className="p-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 h-64 flex flex-col items-center justify-center">
                         <motion.p 
-                          className="text-text-secondary text-center flex-1 flex items-center justify-center leading-relaxed"
+                          className="text-[#666666] text-center flex-1 flex items-center justify-center leading-relaxed"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.8, delay: 0.4 }}
                         >
                           {dept.description}
                         </motion.p>
-                        {/* 底部渐变条效果 */}
-                        <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-purple-500 to-yellow-500 transform scale-x-0 origin-left group-hover:scale-x-100 transition-all duration-700 rounded-full"></div>
-                        {/* 顶部渐变条效果 */}
-                        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-purple-500 to-yellow-500 transform scale-x-0 origin-left group-hover:scale-x-100 transition-all duration-700 rounded-full"></div>
                     </div>
+                    {/* 底部渐变条效果 - 贴边设计 */}
+                    <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-[#fbc2eb] to-[#a6c1ee] transform scale-x-0 origin-left group-hover:scale-x-100 transition-all duration-700 rounded-none"></div>
+                    {/* 顶部渐变条效果 - 贴边设计 */}
+                    <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#fbc2eb] to-[#a6c1ee] transform scale-x-0 origin-left group-hover:scale-x-100 transition-all duration-700 rounded-none"></div>
                     
                     {/* 背景装饰效果 */}
-                    <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: `radial-gradient(circle, rgba(147, 51, 234, 0.15) 0%, rgba(147, 51, 234, 0) 70%)` }}></div>
-                    <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: `radial-gradient(circle, rgba(234, 179, 8, 0.15) 0%, rgba(234, 179, 8, 0) 70%)` }}></div>
+                    <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: `radial-gradient(circle, rgba(139, 195, 74, 0.15) 0%, rgba(139, 195, 74, 0) 70%)` }}></div>
+                    <div className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{ background: `radial-gradient(circle, rgba(156, 204, 101, 0.15) 0%, rgba(156, 204, 101, 0) 70%)` }}></div>
                   </FadeInUp>
               ))}
             </StaggerFadeInUp>
@@ -250,20 +248,22 @@ export default function Home() {
         {/* 活动展示 */}
         <section id="main-content" className="py-24 px-4 md:px-8 section-padding bg-background">
           <div className="container mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-20">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
               <div>
                 <FadeInUp>
-                  <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold text-primary mb-6 leading-tight">
+                  <h2 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold text-[#a6c1ee] mb-2 leading-tight">
                     活动动态
                   </h2>
-                  <div className="w-24 h-1 bg-accent rounded-full gradient-accent"></div>
+                  <div className="w-24 h-1 bg-gradient-to-r from-[#fbc2eb] to-[#a6c1ee] rounded-full"></div>
                 </FadeInUp>
               </div>
-              <Link href="/activities" className="mt-6 md:mt-0" passHref>
-                <button className="px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-full hover:bg-blue-50 transition-all duration-300">
-                  查看更多
-                </button>
-              </Link>
+              <FadeInUp delay={0.4} className="mt-6 md:mt-0">
+                <Link href="/activities" passHref>
+                  <button className="px-8 py-4 bg-gradient-to-r from-[#fbc2eb] to-[#a6c1ee] text-white font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    查看更多
+                  </button>
+                </Link>
+              </FadeInUp>
             </div>
             <Suspense fallback={<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[1, 2, 3].map((item) => (
@@ -276,27 +276,27 @@ export default function Home() {
         </section>
 
         {/* 招新宣传 */}
-        <section className="py-32 px-4 md:px-8 bg-gradient-to-r from-primary/5 to-accent-tertiary/5 relative overflow-hidden rounded-3xl mx-4 lg:mx-8 my-20">
+        <section className="py-32 px-4 md:px-8 bg-gradient-to-r from-[#9ccc65]/10 to-[#7cb342]/10 relative overflow-hidden rounded-3xl mx-4 lg:mx-8 my-20">
           {/* 装饰元素 - 高端光效 */}
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-            <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-pulse-slow"></div>
-            <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-accent-tertiary/10 rounded-full blur-3xl animate-pulse-slow animation-delay-2"></div>
+            <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-[#9ccc65]/20 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-[#7cb342]/20 rounded-full blur-3xl animate-pulse-slow animation-delay-2"></div>
           </div>
           
           <ParallaxContainer factor={0.05} className="container mx-auto text-center relative z-10 px-6">
             <FadeInUp>
-              <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-primary mb-8 leading-tight">
+              <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold text-[#a6c1ee] mb-8 leading-tight">
                 加入我们
               </h2>
             </FadeInUp>
             <FadeInUp delay={0.2}>
-              <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-12 leading-relaxed">
+              <p className="text-lg md:text-xl text-[#666666] max-w-2xl mx-auto mb-12 leading-relaxed">
                 自律委员会期待你的加入！在这里，你将结交志同道合的朋友，锻炼自己的能力，为学院和同学们做出贡献。
               </p>
             </FadeInUp>
             <FadeInUp delay={0.4}>
               <Link href="/recruitment" passHref>
-                <button className="px-8 py-4 border border-blue-600 text-blue-600 font-medium rounded-full hover:bg-blue-50 transition-all duration-300">
+                <button className="px-8 py-4 bg-gradient-to-r from-[#fbc2eb] to-[#a6c1ee] text-white font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                   查看招新信息
                 </button>
               </Link>
@@ -304,13 +304,13 @@ export default function Home() {
           </ParallaxContainer>
         </section>
 
-        {/* 页脚内容 - 高端设计 */}
-        <footer className="bg-background-dark text-text-secondary py-20 px-4 md:px-8 mt-20">
+        {/* 页脚内容 - 梦幻棉花糖配色 */}
+        <footer className="bg-gradient-to-r from-[#fbc2eb] to-[#a6c1ee] py-20 px-4 md:px-8 mt-20">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
               <div className="space-y-6">
-                <h3 className="text-2xl font-semibold text-white mb-4">自律委员会</h3>
-                <p className="leading-relaxed text-text-tertiary">
+                <h3 className="text-2xl font-semibold !text-black mb-4" style={{ color: 'black !important' }}>自律委员会</h3>
+                <p className="leading-relaxed !text-black" style={{ color: 'black !important' }}>
                   自我管理、自我服务、自我教育、自我监督，培养学生的责任感和团队协作精神。
                 </p>
               </div>
@@ -321,12 +321,12 @@ export default function Home() {
                 { title: '联系我们', links: ['地址: 湖北省仙桃市纺织大道8号', '电话: 0728-3331368', '邮箱: zilvweiyuanhui@hbxtzy.edu.cn'] }
               ].map((column, index) => (
                 <div key={index} className="space-y-6">
-                  <h3 className="text-lg font-medium text-white mb-6">{column.title}</h3>
+                  <h3 className="text-lg font-medium !text-black mb-6" style={{ color: 'black !important' }}>{column.title}</h3>
                   <ul className="space-y-5">
                     {column.links.map((link, linkIndex) => (
-                      <li key={linkIndex}>
-                        <a href="#" className="text-text-tertiary hover:text-white transition-colors duration-300 text-sm block hover:translate-x-1 inline-flex items-center">
-                          <span className="h-0.5 w-0 bg-accent mr-2 transition-all duration-300 group-hover:w-2"></span>
+                      <li key={linkIndex} className="group">
+                        <a href="#" className="!text-black transition-colors duration-300 text-sm block hover:translate-x-1 inline-flex items-center" style={{ color: 'black !important' }}>
+                          <span className="h-0.5 w-0 bg-white mr-2 transition-all duration-300 group-hover:w-2"></span>
                           {link}
                         </a>
                       </li>
@@ -336,8 +336,8 @@ export default function Home() {
               ))}
             </div>
             
-            <div className="border-t border-border-dark pt-8 text-center">
-              <p className="text-sm text-text-quaternary">© {new Date().getFullYear()} 仙桃职业学院自律委员会 版权所有</p>
+            <div className="border-t border-black/20 pt-8 text-center">
+              <p className="text-sm !text-black" style={{ color: 'black !important' }}>© {new Date().getFullYear()} 仙桃职业学院自律委员会 版权所有</p>
             </div>
           </div>
         </footer>
