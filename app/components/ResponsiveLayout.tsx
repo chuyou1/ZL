@@ -64,8 +64,10 @@ const ResponsiveLayout: React.FC<ResponsiveLayoutProps> = ({
     };
   };
 
-  // 监听滚动事件 - 增强版
+  // 监听滚动事件 - 增强版，添加滚动条自动隐藏功能
   useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout;
+    
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -74,10 +76,24 @@ const ResponsiveLayout: React.FC<ResponsiveLayoutProps> = ({
       setIsScrolled(scrollTop > 50);
       setScrollProgress(progress);
       setLastScrollTop(scrollTop);
+      
+      // 滚动时显示滚动条
+      document.body.classList.add('scrolling');
+      
+      // 清除之前的定时器
+      clearTimeout(scrollTimeout);
+      
+      // 300毫秒后移除scrolling类，隐藏滚动条
+      scrollTimeout = setTimeout(() => {
+        document.body.classList.remove('scrolling');
+      }, 300);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
   }, []);
 
   // 处理滑动手势（移动端）- 增强版
@@ -287,25 +303,11 @@ const ResponsiveLayout: React.FC<ResponsiveLayoutProps> = ({
 
       {/* 侧边悬浮按钮组 */}
       <div className="fixed right-8 bottom-8 z-40 flex flex-col gap-4">
-        {/* 加入按钮 - 带二维码展开效果 */}
-        <motion.button
-          className="p-4 rounded-full border border-[#a6c1ee] text-[#a6c1ee] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden relative"
-          aria-label="加入我们"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
-          whileHover={{ scale: 1.1, backgroundColor: '#f8f9ff' }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-          </svg>
-          <span className="text-sm hidden sm:inline">加入</span>
-        </motion.button>
+
 
         {/* 在线客服按钮 */}
         <motion.button
-          className="p-4 rounded-full border border-[#a6c1ee] text-[#a6c1ee] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden relative"
+          className="p-4 rounded-full border border-[#7986cb] text-[#7986cb] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden relative"
           aria-label="在线客服"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -321,7 +323,7 @@ const ResponsiveLayout: React.FC<ResponsiveLayoutProps> = ({
 
         {/* 返回顶部按钮 - 精致化增强版 */}
         <motion.button
-          className={`p-4 rounded-full border border-[#a6c1ee] text-[#a6c1ee] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden relative`}
+          className={`p-4 rounded-full border border-[#7986cb] text-[#7986cb] transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden relative`}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="返回顶部"
           initial={{ opacity: 0, y: 20 }}

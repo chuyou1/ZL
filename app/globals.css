@@ -667,26 +667,46 @@ button:active {
   );
 }
 
-/* 精致的滚动条样式 */
+/* 精致的滚动条样式 - 滚动时显示，停止滚动后自动隐藏，与主题色相融合 */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: transparent;
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: rgba(166, 193, 238, 0.3); /* 与主题色 --accent 融合 */
   border-radius: var(--radius-full);
-  transition: background var(--transition-fast) var(--easing-out);
+  transition: all var(--transition-fast) var(--easing-out);
+  opacity: 0;
+}
+
+/* 滚动时显示滚动条 */
+body.scrolling ::-webkit-scrollbar-thumb {
+  opacity: 1;
+}
+
+body:hover ::-webkit-scrollbar-thumb {
+  opacity: 1;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-tertiary);
+  background: rgba(166, 193, 238, 0.6); /* 与主题色 --accent 融合 */
+  width: 8px;
 }
+
+/* 确保滚动条不单独占一行，覆盖在内容上 */
+html {
+  overflow-y: auto;
+  scrollbar-gutter: stable both-edges;
+}
+
+
 
 /* 精致的文字高亮动画 */
 .highlight-animate {
@@ -2691,37 +2711,13 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-/* 滚动条样式 */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--surface);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 4px;
-  transition: background var(--transition-normal);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
-}
-
-/* 深色模式滚动条 */
-.dark ::-webkit-scrollbar-track {
-  background: var(--surface);
-}
-
+/* 深色模式滚动条样式 */
 .dark ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: rgba(166, 193, 238, 0.4); /* 与主题色 --accent 融合 */
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+  background: rgba(166, 193, 238, 0.7); /* 与主题色 --accent 融合 */
 }
 
 /* 工具提示 */

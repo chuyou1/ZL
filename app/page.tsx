@@ -36,8 +36,8 @@ export default function Home() {
   return (
     <ResponsiveLayout>
       <div className="min-h-screen">
-        {/* 轮播Banner - 添加视差效果，增加顶部间距避免被菜单栏覆盖 */}
-        <ParallaxContainer factor={0.15} className="relative w-full overflow-hidden pt-32">
+        {/* 轮播Banner - 添加视差效果，导航栏与轮播图恰好相交 */}
+        <ParallaxContainer factor={0.15} className="relative w-full overflow-hidden pt-16">
           <Suspense fallback={
             <div className="aspect-video bg-background-loading animate-pulse flex items-center justify-center">
               <div className="skeleton-loader w-16 h-16 rounded-full"></div>
@@ -276,11 +276,11 @@ export default function Home() {
         </section>
 
         {/* 招新宣传 */}
-        <section className="py-32 px-4 md:px-8 bg-gradient-to-r from-[#9ccc65]/10 to-[#7cb342]/10 relative overflow-hidden rounded-3xl mx-4 lg:mx-8 my-20">
+        <section className="py-32 px-4 md:px-8 bg-white relative overflow-hidden rounded-3xl mx-4 lg:mx-8 my-20 shadow-lg">
           {/* 装饰元素 - 高端光效 */}
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-            <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-[#9ccc65]/20 rounded-full blur-3xl animate-pulse-slow"></div>
-            <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-[#7cb342]/20 rounded-full blur-3xl animate-pulse-slow animation-delay-2"></div>
+            <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-[#fbc2eb]/20 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-[#a6c1ee]/20 rounded-full blur-3xl animate-pulse-slow animation-delay-2"></div>
           </div>
           
           <ParallaxContainer factor={0.05} className="container mx-auto text-center relative z-10 px-6">
